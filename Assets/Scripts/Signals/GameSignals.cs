@@ -8,4 +8,5 @@ public class GameSignals
     {
         public string Tag { get; set; }
     }
+    public class SettingsClick { }
 }
