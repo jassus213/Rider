@@ -25,6 +25,6 @@ public class ShopMenuPresenter : IInitializable, IShopMenuPresenter, IDisposable
 
     public void Dispose()
     {
-        
+       _signalBus.Unsubscribe<GameSignals.ShopClick>(OnShopMenuCallback);
     }
 }
