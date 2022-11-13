@@ -17,6 +17,12 @@ public class MainMenuPresenter : IMainMenuPresenter, IInitializable
         _signalBus.Fire<GameSignals.StartClick>();
     }
 
+    public void OnShopClick()
+    {
+        _menuView.Show(false);
+        _signalBus.Fire<GameSignals.ShopClick>();
+    }
+    
     public void Initialize()
     {
         _menuView.SetPresenter(this);
