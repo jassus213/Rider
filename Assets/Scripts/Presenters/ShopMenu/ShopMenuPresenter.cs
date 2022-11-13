@@ -14,6 +14,8 @@ public class ShopMenuPresenter : IInitializable, IShopMenuPresenter, IDisposable
 
     public void Initialize()
     {
+        _shopMenuView.SetPresenter(this);
+        
         _signalBus.Subscribe<GameSignals.ShopClick>(OnShopMenuCallback);
     }
 
@@ -26,5 +28,12 @@ public class ShopMenuPresenter : IInitializable, IShopMenuPresenter, IDisposable
     public void Dispose()
     {
        _signalBus.Unsubscribe<GameSignals.ShopClick>(OnShopMenuCallback);
+    }
+
+    public void OnBackButtonClick()
+    {
+        _shopMenuView.Show(false);
+        
+        _signalBus.Fire<GameSignals.BackToMenu>();
     }
 }
