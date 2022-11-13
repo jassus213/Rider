@@ -6,6 +6,7 @@ public class GameSceneInstaller : Installer<GameSceneInstaller>
     {
         Container.DeclareSignal<GameSignals.StartClick>().OptionalSubscriber();
         Container.DeclareSignal<GameSignals.ShopClick>().OptionalSubscriber();
+        Container.DeclareSignal<GameSignals.BackToMenu>().OptionalSubscriber();
 
 
         Container.BindInterfacesAndSelfTo<MainMenuPresenter>().AsSingle();

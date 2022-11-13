@@ -26,5 +26,12 @@ public class MainMenuPresenter : IMainMenuPresenter, IInitializable
     public void Initialize()
     {
         _menuView.SetPresenter(this);
+        
+        _signalBus.Subscribe<GameSignals.BackToMenu>(OnBackToMenu);
+    }
+
+    private void OnBackToMenu(GameSignals.BackToMenu obj)
+    {
+        _menuView.Show(true);
     }
 }
