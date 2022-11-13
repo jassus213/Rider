@@ -8,11 +8,10 @@ public class MainMenuView : MonoBehaviour, IMainMenuView
 
     private IMainMenuPresenter _presenter;
 
-
     public void SetPresenter(IMainMenuPresenter presenter)
     {
         _presenter = presenter;
-        
+
         _startButton.onClick.AddListener(_presenter.OnStartClick);
         _shopButton.onClick.AddListener(_presenter.OnShopClick);
     }
