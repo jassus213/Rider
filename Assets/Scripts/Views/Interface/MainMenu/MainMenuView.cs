@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class MainMenuView : MonoBehaviour, IMainMenuView
 {
     [SerializeField] private Button _startButton;
+    [SerializeField] private Button _shopButton;
 
     private IMainMenuPresenter _presenter;
 
@@ -13,6 +14,7 @@ public class MainMenuView : MonoBehaviour, IMainMenuView
         _presenter = presenter;
         
         _startButton.onClick.AddListener(_presenter.OnStartClick);
+        _shopButton.onClick.AddListener(_presenter.OnShopClick);
     }
 
     public void Show(bool show)
