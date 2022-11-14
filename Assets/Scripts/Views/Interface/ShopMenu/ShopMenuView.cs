@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Models;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopMenuView : MonoBehaviour, IShopMenuView
 {
+    public Dictionary<Button, GameObject> CarsDictionary => _carsDictionary;
+    
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _firstCarButton;
     [SerializeField] private Button _secondCarButton;
@@ -13,8 +16,12 @@ public class ShopMenuView : MonoBehaviour, IShopMenuView
     [SerializeField] private List<GameObject> _cars;
     [SerializeField] private List<Button> _buttons;
 
-    public Dictionary<Button, GameObject> CarsDictionary => _carsDictionary;
+    [SerializeField] private GameObject _carModel;
+    [SerializeField] private GameObject _wheels;
+
+   
     private Dictionary<Button, GameObject> _carsDictionary;
+    
 
     private void Awake()
     {
@@ -55,5 +62,11 @@ public class ShopMenuView : MonoBehaviour, IShopMenuView
     {
         _carsDictionary.TryGetValue(button, out GameObject car);
         _presenter.GetCarChoose(car);
+        CarBuilder();
+    }
+
+    private void CarBuilder()
+    {
+        _carModel.GetComponent<Image>().sprite = _presenter.GetCarModels().GetComponent<SpriteRenderer>().sprite;
     }
 }

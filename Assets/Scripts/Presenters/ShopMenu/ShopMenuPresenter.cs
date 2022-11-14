@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
 using Models;
-using Unity.VisualScripting.FullSerializer.Internal.Converters;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 public class ShopMenuPresenter : IInitializable, IShopMenuPresenter, IDisposable
@@ -48,5 +45,10 @@ public class ShopMenuPresenter : IInitializable, IShopMenuPresenter, IDisposable
     {
         _commonGameSettings.SetCarModel(car);
         _signalBus.Fire<GameSignals.ChangeCar>();
+    }
+
+    public GameObject GetCarModels()
+    {
+        return _commonGameSettings.BodyCarModel;
     }
 }
