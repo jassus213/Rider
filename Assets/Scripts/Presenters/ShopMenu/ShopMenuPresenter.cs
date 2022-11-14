@@ -44,10 +44,9 @@ public class ShopMenuPresenter : IInitializable, IShopMenuPresenter, IDisposable
         _signalBus.Fire<GameSignals.BackToMenu>();
     }
 
-    public void GetCarChoose(Button button)
+    public void GetCarChoose(GameObject car)
     {
-        var model = _shopMenuView.GetCarModel(button);
-        _commonGameSettings.SetCarModel(model);
+        _commonGameSettings.SetCarModel(car);
         _signalBus.Fire<GameSignals.ChangeCar>();
     }
 }

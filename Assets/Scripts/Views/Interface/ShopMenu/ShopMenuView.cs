@@ -18,11 +18,14 @@ public class ShopMenuView : MonoBehaviour, IShopMenuView
 
     private void Awake()
     {
-        _carsDictionary = new Dictionary<Button, GameObject>()
+        _carsDictionary = new Dictionary<Button, GameObject>();
+        
+        for (int i = 0; i < _cars.Count; i++)
         {
-            {_firstCarButton, _cars[0]},
-            {_secondCarButton, _cars[1]}
-        };
+            _carsDictionary.Add(_buttons[i], _cars[i]);
+        }
+
+        
     }
 
     private CommonGameSettings _commonGameSettings;
@@ -38,8 +41,8 @@ public class ShopMenuView : MonoBehaviour, IShopMenuView
 
 
         _backButton.onClick.AddListener(_presenter.OnBackButtonClick);
-        _firstCarButton.onClick.AddListener(() => _presenter.GetCarChoose(_firstCarButton));
-        _secondCarButton.onClick.AddListener(() => _presenter.GetCarChoose(_secondCarButton));
+        _firstCarButton.onClick.AddListener(() => GetCarModel(_firstCarButton));
+        _secondCarButton.onClick.AddListener(() => GetCarModel(_secondCarButton));
     }
 
 
@@ -48,9 +51,9 @@ public class ShopMenuView : MonoBehaviour, IShopMenuView
         gameObject.SetActive(show);
     }
 
-    public GameObject GetCarModel(Button button)
+    private void GetCarModel(Button button)
     {
         _carsDictionary.TryGetValue(button, out GameObject car);
-        return car;
+        _presenter.GetCarChoose(car);
     }
 }

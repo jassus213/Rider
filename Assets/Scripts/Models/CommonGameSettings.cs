@@ -19,7 +19,7 @@ namespace Models
         {
             _volume = 1f;
             _isFullScreen = true;
-            _bodyCarModel = null;
+            _bodyCarModel = GameObject.FindGameObjectWithTag("FirstCar");
         }
 
         public void SetVolume(float volume)
@@ -30,7 +30,7 @@ namespace Models
         public void SetCarModel(GameObject carModel)
         {
             _bodyCarModel = carModel;
-            Debug.Log(carModel.tag);
+            Debug.Log(_bodyCarModel.tag);
         }
 
         public void SetFullScreen(bool value)
