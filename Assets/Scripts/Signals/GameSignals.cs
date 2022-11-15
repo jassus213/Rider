@@ -4,9 +4,6 @@ public class GameSignals
     public class ShopClick { }
     public class BackToMenu { }
 
-    public class ChangeCar
-    {
-        public string Tag { get; set; }
-    }
+    public class ChangeCar { } 
     public class SettingsClick { }
 }
