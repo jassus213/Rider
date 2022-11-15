@@ -5,19 +5,19 @@ public class SettingsMenuView : MonoBehaviour, ISettingsMenuView
 {
     private ISettingsMenuPresenter _presenter;
     
-    [SerializeField] private Button _backButton;
-    [SerializeField] private Toggle _fullscreenToggle;
-    [SerializeField] private Slider _musicVolumeSlider;
-    [SerializeField] private Slider _effectsVolumeSlider;
+    [SerializeField] private Button backButton;
+    [SerializeField] private Toggle fullscreenToggle;
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider effectsVolumeSlider;
 
     public void SetPresenter(ISettingsMenuPresenter presenter)
     {
         _presenter = presenter;
         
-        _backButton.onClick.AddListener(_presenter.OnBackButtonClick);
-        _fullscreenToggle.onValueChanged.AddListener(_presenter.OnFullscreenToggle);
-        _musicVolumeSlider.onValueChanged.AddListener(_presenter.OnMusicVolumeChange);
-        _effectsVolumeSlider.onValueChanged.AddListener(_presenter.OnEffectsVolumeChange);
+        backButton.onClick.AddListener(_presenter.OnBackButtonClick);
+        fullscreenToggle.onValueChanged.AddListener(_presenter.OnFullscreenToggle);
+        musicVolumeSlider.onValueChanged.AddListener(_presenter.OnMusicVolumeChange);
+        effectsVolumeSlider.onValueChanged.AddListener(_presenter.OnEffectsVolumeChange);
     }
 
     public void Show(bool show)

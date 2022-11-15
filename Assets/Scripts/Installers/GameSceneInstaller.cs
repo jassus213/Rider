@@ -16,6 +16,7 @@ public class GameSceneInstaller : Installer<GameSceneInstaller>
         Container.BindInterfacesAndSelfTo<ShopMenuPresenter>().AsSingle();
         Container.BindInterfacesAndSelfTo<SettingsMenuPresenter>().AsSingle();
         Container.BindInterfacesAndSelfTo<CarPresenter>().AsSingle();
+        Container.BindInterfacesAndSelfTo<WorldPresenter>().AsSingle();
 
     }
 }
