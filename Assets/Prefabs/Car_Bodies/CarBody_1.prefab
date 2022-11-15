@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4345648072654685813}
   - component: {fileID: 7814199332213528101}
   - component: {fileID: 7103756794039823651}
+  - component: {fileID: 8652646333996692455}
   m_Layer: 0
   m_Name: CarBody_1
   m_TagString: FirstCar
@@ -325,3 +326,24 @@ PolygonCollider2D:
       - {x: -6.359297, y: -2.922656}
       - {x: -6.2887497, y: -2.8521092}
       - {x: -6.218203, y: -2.7311718}
+--- !u!50 &8652646333996692455
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4490489647934805059}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
