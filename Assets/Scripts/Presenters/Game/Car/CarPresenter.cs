@@ -72,6 +72,11 @@ public class CarPresenter : ICarPresenter, IInitializable, IDisposable, IFixedTi
         secondWheel.GetComponent<WheelJoint2D>().useMotor = false;
     }
 
+    public void ChunkCollide()
+    {
+        _signalBus.Fire<GameSignals.CarCollideChunk>();
+    }
+
     public void FixedTick()
     {
         if (_gameStatus.IsGameStarted)

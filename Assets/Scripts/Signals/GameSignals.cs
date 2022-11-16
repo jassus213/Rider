@@ -6,4 +6,5 @@ public class GameSignals
 
     public class ChangeCar { } 
     public class SettingsClick { }
+    public class CarCollideChunk { }
 }
