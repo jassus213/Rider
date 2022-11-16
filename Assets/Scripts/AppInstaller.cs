@@ -11,5 +11,6 @@ public class AppInstaller : MonoInstaller
         SignalBusInstaller.Install(Container);
 
         Container.Bind<CommonGameSettings>().ToSelf().AsSingle();
+        Container.Bind<GameStatus>().ToSelf().AsSingle();
     }
 }
