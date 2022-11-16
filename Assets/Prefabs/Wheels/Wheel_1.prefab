@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 170051433289603363}
   - component: {fileID: 5160408987155350984}
   - component: {fileID: 2033522463650896781}
+  - component: {fileID: 3337543725504222726}
   m_Layer: 0
   m_Name: Wheel_1
   m_TagString: Untagged
@@ -266,3 +267,24 @@ PolygonCollider2D:
       - {x: 0.32, y: -4.3199997}
       - {x: 0.52, y: -4.2999997}
       - {x: 0.66999996, y: -4.2799997}
+--- !u!50 &3337543725504222726
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3466564275838159910}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

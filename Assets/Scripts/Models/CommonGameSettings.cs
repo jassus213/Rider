@@ -1,27 +1,46 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
 namespace Models
 {
     public class CommonGameSettings
     {
-        public float Volume => _volume;
-        private float _volume;
+        public GameObject BodyCarModel => _bodyCarModel;
+        private GameObject _bodyCarModel;
 
-        public bool IsFullScreen => _isFullScreen;
-        private bool _isFullScreen;
-
+        private AudioSource _musicAudioSource;
+        private AudioSource _effectsAudioSource;
+        
         public CommonGameSettings()
         {
-            _volume = 1f;
-            _isFullScreen = true;
+            _bodyCarModel = GameObject.FindGameObjectWithTag("FirstCar");
+            _musicAudioSource = GameObject.FindGameObjectWithTag("MusicAudio").GetComponent<AudioSource>();
+            _effectsAudioSource = GameObject.FindGameObjectWithTag("EffectsAudio").GetComponent<AudioSource>();
+
+            _musicAudioSource.volume = 1f;
+            _effectsAudioSource.volume = 0.3f;
+            Screen.fullScreen = true;
         }
 
-        public void SetVolume(float volume)
+        public void SetMusicVolume(float volume)
         {
-            _volume = volume;
+            _musicAudioSource.volume = volume;
         }
 
-        public void SetFullScreen(bool value)
+        public void SetEffectsVolume(float volume)
         {
-            _isFullScreen = value;
+            _effectsAudioSource.volume = volume;
+        }
+        public void SetScreenResolution(bool flag)
+        {
+            Screen.fullScreen = flag;
+        }
+
+        public void SetCarModel(GameObject carModel)
+        {
+            _bodyCarModel = carModel;
+            Debug.Log(_bodyCarModel.tag);
         }
     }
 }

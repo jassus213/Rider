@@ -7,6 +7,8 @@ public class GameSceneStartInstaller : MonoInstaller
     [SerializeField] private ShopMenuView _shopView;
     [SerializeField] private SettingsMenuView _settingsView;
     [SerializeField] private CarView _carView;
+    [SerializeField] private WorldView _worldView;
+
 
     public override void InstallBindings()
     {
@@ -16,5 +18,6 @@ public class GameSceneStartInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<ShopMenuView>().FromInstance(_shopView);
         Container.BindInterfacesAndSelfTo<SettingsMenuView>().FromInstance(_settingsView);
         Container.BindInterfacesAndSelfTo<CarView>().FromInstance(_carView);
+        Container.BindInterfacesAndSelfTo<WorldView>().FromInstance(_worldView);
     }
 }
