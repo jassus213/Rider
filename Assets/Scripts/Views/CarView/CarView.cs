@@ -34,4 +34,9 @@ public class CarView : MonoBehaviour, ICarView
     {
         return _carModel;
     }
+
+    public GameObject[] GetWheels()
+    {
+        return _wheelModel;
+    }
 }

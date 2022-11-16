@@ -9,4 +9,5 @@ public interface ICarView
     void ChangeModel(GameObject carModel, GameObject wheelsModel = null);
 
     GameObject GetCar();
+    GameObject[] GetWheels();
 }

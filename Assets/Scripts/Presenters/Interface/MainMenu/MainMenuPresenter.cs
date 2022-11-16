@@ -4,16 +4,19 @@ public class MainMenuPresenter : IMainMenuPresenter, IInitializable
 {
     private readonly SignalBus _signalBus;
     private readonly IMainMenuView _menuView;
+    private readonly GameStatus _gameStatus;
 
-    public MainMenuPresenter(SignalBus signalBus, IMainMenuView menuView)
+    public MainMenuPresenter(SignalBus signalBus, IMainMenuView menuView, GameStatus gameStatus)
     {
         _signalBus = signalBus;
         _menuView = menuView;
+        _gameStatus = gameStatus;
     }
 
     public void OnStartClick()
     {
         _menuView.Show(false);
+        _gameStatus.SetGameStartStatus(true);
         _signalBus.Fire<GameSignals.StartClick>();
     }
 
