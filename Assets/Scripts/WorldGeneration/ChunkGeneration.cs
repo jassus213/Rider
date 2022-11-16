@@ -18,6 +18,12 @@ public class ChunkGeneration : MonoBehaviour
          chunkID = Random.Range(0, _worldChunks.Length);
 
          Instantiate(_worldChunks[chunkID],
-             new Vector3(PreviousChunkPosX + chunkLength, PreviousChunkPosY, PreviousChunkPosZ),Quaternion.identity);
+             new Vector3(PreviousChunkPosX + chunkLength, PreviousChunkPosY, PreviousChunkPosZ), Quaternion.identity);
      }
+
+     
+    
+
+    
+    
 }

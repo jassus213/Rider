@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class GameSceneStartInstaller : MonoInstaller
@@ -7,7 +8,8 @@ public class GameSceneStartInstaller : MonoInstaller
     [SerializeField] private ShopMenuView _shopView;
     [SerializeField] private SettingsMenuView _settingsView;
     [SerializeField] private CarView _carView;
-    [SerializeField] private WorldView _worldView;
+    [SerializeField] private ChunkCreatorView chunkCreatorView;
+    [SerializeField] private ChunkDestroyerView _chunkDestroyerView;
 
 
     public override void InstallBindings()
@@ -18,6 +20,7 @@ public class GameSceneStartInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<ShopMenuView>().FromInstance(_shopView);
         Container.BindInterfacesAndSelfTo<SettingsMenuView>().FromInstance(_settingsView);
         Container.BindInterfacesAndSelfTo<CarView>().FromInstance(_carView);
-        Container.BindInterfacesAndSelfTo<WorldView>().FromInstance(_worldView);
+        Container.BindInterfacesAndSelfTo<ChunkCreatorView>().FromInstance(chunkCreatorView);
+        Container.BindInterfacesAndSelfTo<ChunkDestroyerView>().FromInstance(_chunkDestroyerView);
     }
 }

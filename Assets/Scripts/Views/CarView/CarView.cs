@@ -39,4 +39,11 @@ public class CarView : MonoBehaviour, ICarView
     {
         return _wheelModel;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<IDestroyable>() != null)
+            other.GetComponent<IDestroyable>().DerstoryObject(other.gameObject);
+
+    }
 }
