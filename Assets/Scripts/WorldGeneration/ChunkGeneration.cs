@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChunkGeneration : MonoBehaviour
 {
-     [SerializeField] private GameObject[] _worldChunks;
+     [SerializeField] private GameObject[] worldChunks;
 
      private int chunkID;
      private int chunkLength = 45;
@@ -15,9 +13,9 @@ public class ChunkGeneration : MonoBehaviour
          float PreviousChunkPosY = PreviousChunk.transform.position.y;
          float PreviousChunkPosZ = PreviousChunk.transform.position.z;
 
-         chunkID = Random.Range(0, _worldChunks.Length);
+         chunkID = Random.Range(0, worldChunks.Length);
 
-         Instantiate(_worldChunks[chunkID],
+         Instantiate(worldChunks[chunkID],
              new Vector3(PreviousChunkPosX + chunkLength, PreviousChunkPosY, PreviousChunkPosZ), Quaternion.identity);
      }
 
