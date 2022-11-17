@@ -14,6 +14,6 @@ public class ChunkDestroyerView : MonoBehaviour, IChunkDestoryerView
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.transform.parent.gameObject);
+        Destroy(other.transform.gameObject);
     }
 }
