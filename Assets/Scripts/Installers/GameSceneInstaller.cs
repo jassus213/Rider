@@ -14,9 +14,12 @@ public class GameSceneInstaller : Installer<GameSceneInstaller>
 
         Container.BindInterfacesAndSelfTo<MainMenuPresenter>().AsSingle();
         Container.BindInterfacesAndSelfTo<ShopMenuPresenter>().AsSingle();
+
         Container.BindInterfacesAndSelfTo<SettingsMenuPresenter>().AsSingle();
         Container.BindInterfacesAndSelfTo<CarPresenter>().AsSingle();
-        Container.BindInterfacesAndSelfTo<ChunkCreatorPresenter>().AsSingle();
-        Container.BindInterfacesAndSelfTo<ChunkDestroyerView>().AsSingle();
+        Container.BindInterfacesTo<ChunkDestroyPresenter>().AsSingle();
+
+
+
     }
 }
