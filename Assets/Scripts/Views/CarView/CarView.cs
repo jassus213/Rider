@@ -43,7 +43,7 @@ public class CarView : MonoBehaviour, ICarView
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<IDestroyable>() != null)
-            other.GetComponent<IDestroyable>().DerstoryObject(other.gameObject);
+            other.GetComponent<IDestroyable>().DerstoryObject();
 
     }
 }

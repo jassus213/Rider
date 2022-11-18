@@ -1,14 +1,12 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting;
 using Random = UnityEngine.Random;
 
 public class CoinsFactory : MonoBehaviour, IChunkDestroyerPresenter
 {
-    [SerializeField] private List<Transform> _coinsVariablesPositions;
     [SerializeField] private GameObject _coin;
     private List<Vector3> _coinsPositions = new List<Vector3>();
+    private List<Transform> _coinsVariablesPositions;
 
 
     public void CoinsCreator(GameObject chunk, float lastChunkPos)
@@ -24,8 +22,8 @@ public class CoinsFactory : MonoBehaviour, IChunkDestroyerPresenter
             var coinPosition = new Vector3(newCoinPosX, coinPos.y, coinPos.z);
             Instantiate(_coin, coinPosition, Quaternion.identity);
         }
+
         _coinsPositions.Clear();
-        Debug.Log($"Coins Pos: {_coinsPositions.Count}");
     }
 
     private int GetCountOfCoins()
@@ -54,7 +52,6 @@ public class CoinsFactory : MonoBehaviour, IChunkDestroyerPresenter
         var childCount = chunk.transform.Find("CoinsPositions").childCount;
         for (int i = 0; i < childCount; i++)
         {
-            Debug.Log($"Child Count: {childCount}");
             var pos = chunk.transform.Find("CoinsPositions").GetChild(i);
             _coinsVariablesPositions.Add(pos);
         }

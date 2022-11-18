@@ -9,8 +9,10 @@ public class ChunkCreatorFactory : MonoBehaviour
 
     [SerializeField] private CoinsFactory _coinsFactory;
 
-    
-
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log(other.tag);
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {

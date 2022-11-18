@@ -11,6 +11,9 @@ namespace Models
 
         private AudioSource _musicAudioSource;
         private AudioSource _effectsAudioSource;
+
+        public int Value => _value;
+        private int _value;
         
         public CommonGameSettings()
         {
@@ -26,6 +29,11 @@ namespace Models
         public void SetMusicVolume(float volume)
         {
             _musicAudioSource.volume = volume;
+        }
+
+        public void SetValue(int value)
+        {
+            _value = value;
         }
 
         public void SetEffectsVolume(float volume)
