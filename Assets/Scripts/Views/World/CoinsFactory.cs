@@ -6,7 +6,7 @@ public class CoinsFactory : MonoBehaviour, IChunkDestroyerPresenter
 {
     [SerializeField] private GameObject _coin;
     private List<Vector3> _coinsPositions = new List<Vector3>();
-    private List<Transform> _coinsVariablesPositions;
+    [SerializeField] private List<Transform> _coinsVariablesPositions;
 
 
     public void CoinsCreator(GameObject chunk, float lastChunkPos)

@@ -8,15 +8,11 @@ public class ChunkCreatorFactory : MonoBehaviour
     [SerializeField] private GameObject[] _chunks;
 
     [SerializeField] private CoinsFactory _coinsFactory;
-
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log(other.tag);
-    }
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Chunk"))
+        Debug.Log(true);
+        if(other.CompareTag("Chunk"))
             CreateChunk(other.gameObject);
     }
 
