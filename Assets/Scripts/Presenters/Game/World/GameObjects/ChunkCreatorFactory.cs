@@ -1,14 +1,17 @@
 using System;
+using System.Collections.Generic;
+using GameElements.Coin;
 using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 public class ChunkCreatorFactory : MonoBehaviour
 {
     [SerializeField] private GameObject[] _chunks;
 
-    [SerializeField] private CoinsFactory _coinsFactory;
-    
+    [Inject] private ICoinCreator _coinCreator;
+
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log(true);
@@ -26,8 +29,21 @@ public class ChunkCreatorFactory : MonoBehaviour
 
         var id = GetRandomChunk();
         var newChunk = _chunks[id];
-        Instantiate(newChunk, newChankPos, Quaternion.identity);
-        _coinsFactory.CoinsCreator(newChunk, lastChunkPosX);
+        var worldPeace = Instantiate(newChunk, newChankPos, Quaternion.identity);
+        var chunkLenght = this.gameObject.transform.localScale.x;
+        _coinCreator.Create(chunkLenght, CoinsPos(worldPeace));
+    }
+    private Vector3[] CoinsPos(GameObject chunk)
+    {
+        var childCount = chunk.transform.Find("CoinsPositions").childCount;
+        var result = new List<Vector3>(childCount);
+        for (int i = 0; i < childCount; i++)
+        {
+            var pos = chunk.transform.Find("CoinsPositions").GetChild(i);
+            result.Add(pos.transform.position);
+        }
+
+        return result.ToArray();
     }
 
     private int GetRandomChunk()

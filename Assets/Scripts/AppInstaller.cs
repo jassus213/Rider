@@ -12,5 +12,6 @@ public class AppInstaller : MonoInstaller
 
         Container.Bind<CommonGameSettings>().ToSelf().AsSingle();
         Container.Bind<GameStatus>().ToSelf().AsSingle();
+        
     }
 }

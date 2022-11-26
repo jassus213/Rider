@@ -64,7 +64,6 @@ public class CarPresenter : ICarPresenter, IInitializable, IDisposable, IFixedTi
         {
             firstWheel.GetComponent<WheelJoint2D>().useMotor = true;
             secondWheel.GetComponent<WheelJoint2D>().useMotor = true;
-            Debug.Log("test");
             return;
         }
 

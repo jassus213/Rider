@@ -1,12 +1,13 @@
 using System;
 using System.Security.Cryptography;
+using GameElements.Coin;
 using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
 public class ChunkDestroyerView : MonoBehaviour, IChunkDestoryerView
 {
     private IChunkDestroyerPresenter _destroyerPresenter;
-    
     public void SetPresenter(IChunkDestroyerPresenter presneter)
     {
         _destroyerPresenter = presneter;
@@ -14,6 +15,15 @@ public class ChunkDestroyerView : MonoBehaviour, IChunkDestoryerView
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.transform.gameObject);
+        var gameElement = other.GetComponent<ICoinView>();
+        if (gameElement != null)
+        {
+            gameElement.Despawn();
+        }
+        else
+        {
+            Destroy(other.transform.gameObject);
+        }    
+        
     }
 }

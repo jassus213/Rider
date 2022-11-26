@@ -1,3 +1,4 @@
+using GameElements.Coin;
 using Zenject;
 
 public class GameSceneInstaller : Installer<GameSceneInstaller>
@@ -17,8 +18,5 @@ public class GameSceneInstaller : Installer<GameSceneInstaller>
         Container.BindInterfacesAndSelfTo<SettingsMenuPresenter>().AsSingle();
         Container.BindInterfacesAndSelfTo<CarPresenter>().AsSingle();
         Container.BindInterfacesTo<ChunkDestroyPresenter>().AsSingle();
-
-
-
     }
 }

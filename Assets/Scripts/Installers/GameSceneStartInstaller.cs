@@ -1,5 +1,5 @@
+using GameElements.Coin;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 public class GameSceneStartInstaller : MonoInstaller
@@ -12,7 +12,9 @@ public class GameSceneStartInstaller : MonoInstaller
     [SerializeField] private CarView _carView;
     [SerializeField] private ChunkDestroyerView _chunkDestroyerView;
     [SerializeField] private ChunkCreatorFactory _chunkCreatorFactory;
-    [SerializeField] private CoinsFactory _coinsFactory;
+ 
+    
+    [SerializeField] private PrefabsContainer _prefabsContainer;
 
 
     public override void InstallBindings()
@@ -25,6 +27,17 @@ public class GameSceneStartInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<CarView>().FromInstance(_carView);
         Container.BindInterfacesAndSelfTo<ChunkDestroyerView>().FromInstance(_chunkDestroyerView);
         Container.BindInterfacesAndSelfTo<ChunkCreatorFactory>().FromInstance(_chunkCreatorFactory);
-        Container.BindInterfacesAndSelfTo<CoinsFactory>().FromInstance(_coinsFactory);
+        
+        
+        
+        
+        Container.BindInterfacesAndSelfTo<CoinCreator>().AsSingle();
+        Container.BindFactory<ICoinPresenter, CoinPresentersFactory>()
+            .To<CoinPresenter>();
+        Container.BindFactory<ICoinView, CoinViewsFactory>()
+            .To<CoinView>()
+            .FromMonoPoolableMemoryPool(x => x.WithInitialSize(3)
+                .FromComponentInNewPrefab(_prefabsContainer.Coin)
+                .UnderTransformGroup("CoinViews"));
     }
 }
